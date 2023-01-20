@@ -21,12 +21,15 @@ public class  MyArrayList <T> {
 
     //remove(int index) видаляємо елемент по індексу. Переміщаємо всі елементи справа.
         public void remove(int index) {
+        if (index < 0 || index >= counter) {
+            throw new IndexOutOfBoundsException();
+        }
         for (int i = index; i < counter; i++)
             array[i] = array[i+1];
         array[counter] = null;
         counter --;
         if (array.length > INIT && counter < array.length / TRIM)
-            resize(array.length * 2); // якщо єлнментів в TRIM раз меньше чим
+            resize(array.length / 2); // якщо єлнментів в TRIM раз меньше чим
         // довжина масива, то зменшуємо його в два рази
     }
     //size() повертаємо розмір
