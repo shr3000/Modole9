@@ -13,6 +13,9 @@ public class  MyArrayList <T> {
 
     //get(int index) повертаємо елемент по індексу
     public T get(int index) {
+        if (index < 0 || index >= counter) {
+            throw new IndexOutOfBoundsException();
+        }
         return (T) array[index];
     }
 
